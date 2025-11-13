@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detaling Marco Sarro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #0A0A0A;
+      --color-secondary: #F5F5F3;
+      --color-accent: #D4A574;
+      --color-text-muted: #6B6B6B;
+      --color-white: #FFFFFF;
+      --max-width: 1440px;
+      --gutter-mobile: 16px;
+      --gutter-desktop: 32px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    p {
+      max-width: 68ch;
+      margin-bottom: 24px;
+    }
+
+    h2,
+    h3,
+    h4 {
+      margin-top: 40px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px var(--gutter-mobile);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: none;
+      gap: 24px;
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: none;
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      min-width: 180px;
+      min-height: 56px;
+      box-shadow: 0 4px 16px rgba(10, 10, 10, 0.15);
+    }
+
+    .btn-primary:hover {
+      background: #BF9464;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(10, 10, 10, 0.2);
+    }
+
+    .btn-primary:active {
+      background: #A6844D;
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px rgba(10, 10, 10, 0.15);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: var(--color-primary);
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--color-primary);
+      left: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger::before {
+      top: -6px;
+    }
+
+    .hamburger::after {
+      top: 6px;
+    }
+
+    .menu-toggle {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .desktop-cart {
+      display: none;
+    }
+
+    .overlay-menu {
+      position: fixed;
+      top: 64px;
+      right: 16px;
+      width: min(320px, calc(100% - 32px));
+      background: var(--color-white);
+      border: 1px solid rgba(10, 10, 10, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 16px 40px rgba(10, 10, 10, 0.12);
+      display: none;
+      z-index: 30;
+    }
+
+    .overlay-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 64px var(--gutter-mobile);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      max-width: none;
+      margin-bottom: 8px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: max(600px, 100vh);
+      display: flex;
+      align-items: center;
+      color: var(--color-white);
+      padding: 0;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 96px var(--gutter-mobile) 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      max-width: 640px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 64px;
+      margin: 0 0 16px;
+      color: var(--color-white);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0 0 24px;
+    }
+
+    .hero-subhead {
+      color: rgba(255, 255, 255, 0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .trust-bar {
+      background: var(--color-secondary);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 24px;
+    }
+
+    .trust-bar p {
+      margin: 0 0 4px;
+      color: var(--color-text-muted);
+      max-width: none;
+    }
+
+    .trust-bar strong {
+      font-size: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .service-card {
+      border: 1px solid rgba(10, 10, 10, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--color-white);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(10, 10, 10, 0.15);
+    }
+
+    .service-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .service-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.6) 100%);
+      z-index: 1;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0);
+      z-index: 2;
+      transition: background 0.3s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover .service-media::after {
+      background: rgba(10, 10, 10, 0.7);
+    }
+
+    .service-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 3;
+      padding: 6px 12px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-accent);
+      background: rgba(10, 10, 10, 0.75);
+      border-radius: 999px;
+    }
+
+    .service-hover {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover .service-hover {
+      opacity: 1;
+    }
+
+    .service-card .content {
+      padding: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: var(--color-text-muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .split-layout .media {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #dcdcdc;
+      min-height: 280px;
+      /* Placeholder */
+    }
+
+    .split-layout ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .projects-slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+
+    .case-study {
+      min-width: 100%;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+      background: var(--color-secondary);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .case-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .case-images figure {
+      border-radius: 16px;
+      background: #dcdcdc;
+      min-height: 160px;
+      /* Placeholder */
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .slider-controls button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      background: var(--color-white);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .social-proof {
+      display: grid;
+      gap: 32px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .metric strong {
+      font-size: 36px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .testimonial-card {
+      border-left: 4px solid var(--color-accent);
+      padding: 24px;
+      background: var(--color-white);
+      box-shadow: 0 8px 32px rgba(10, 10, 10, 0.08);
+    }
+
+    .testimonial-card p {
+      font-size: 18px;
+      font-style: italic;
+      color: var(--color-primary);
+      margin: 0 0 16px;
+      max-width: none;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .testimonial-stars {
+      color: var(--color-accent);
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+    .cta-final {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      background: var(--color-secondary);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .cta-final form {
+      display: grid;
+      gap: 20px;
+      max-width: 560px;
+    }
+
+    .cta-final form .btn {
+      justify-self: flex-start;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 14px;
+      color: #7a7a7a;
+      text-transform: none;
+    }
+
+    .required {
+      color: #c62828;
+      margin-left: 4px;
+    }
+
+    input,
+    textarea {
+      padding: 14px 16px;
+      border-radius: 4px;
+      border: 1px solid #E0E0E0;
+      font-family: inherit;
+      font-size: 16px;
+      background: var(--color-white);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .map {
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    footer {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 48px var(--gutter-mobile);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .footer-links,
+    .footer-social {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links a,
+    .footer-social a {
+      color: var(--color-white);
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--color-white);
+      border-top: 1px solid rgba(10, 10, 10, 0.1);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 8px 0;
+      font-size: 13px;
+      z-index: 15;
+    }
+
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .bottom-nav span {
+      font-size: 11px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 80px var(--gutter-mobile) 96px;
+      }
+
+      .cta-final {
+        padding: 24px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-bar {
+        padding: 20px var(--gutter-desktop);
+      }
+
+      nav ul {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .desktop-cart {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+
+      .hero-content {
+        padding: 160px var(--gutter-desktop);
+      }
+
+      .split-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .case-study {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .cta-final {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.2fr 1fr 1fr;
+        padding: 64px var(--gutter-desktop);
+      }
+
+      .bottom-nav {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .section {
+        padding: 96px var(--gutter-desktop);
+      }
+
+      .trust-bar {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-bar">
+      <a class="logo" href="#hero">MARCO SARRO</a>
+      <nav>
+        <ul>
+          <li><a href="#servizi">Servizi</a></li>
+          <li><a href="#prodotti">Prodotti</a></li>
+          <li><a href="#centro">Centro</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+        <a class="desktop-cart" href="#shop">Carrello ▸</a>
+        <a class="btn btn-secondary" href="#shop">Shop</a>
+      </div>
+    </div>
+    <div class="overlay-menu" aria-hidden="true">
+      <ul>
+        <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#certificazioni">Certificazioni</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <video autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-classic-blue-car-8939/1080p.mp4" type="video/mp4">
+      </video>
+      <div class="hero-content">
+        <p class="mono hero-subhead">Centro Detailing Specializzato</p>
+        <h1>Proteggiamo la materia, esaltiamo il design.</h1>
+        <p>Processi tecnici certificati e cura maniacale per auto, moto e imbarcazioni di pregio. Ogni superficie viene calibrata e protetta con protocolli su misura.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#servizi">Scopri i Servizi</a>
+          <a class="btn btn-secondary" href="#contatti">Parla con un esperto</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust-bar" aria-label="Trust bar">
+      <div>
+        <p>✓ Centro Certificato</p>
+        <strong>Accredito IGL Coatings</strong>
+      </div>
+      <div>
+        <p>Esperienza</p>
+        <strong>15+ anni</strong>
+      </div>
+      <div>
+        <p>Rating clienti</p>
+        <strong>4.8★ Google</strong>
+      </div>
+    </section>
+
+    <section id="servizi" class="section">
+      <div class="section-header">
+        <p class="mono" style="color: var(--color-text-muted);">Linee di intervento</p>
+        <h2 class="section-title">Servizi Professionali</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-media" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80" alt="Luxury detailing in progress">
+            <span class="service-badge">Luxury</span>
+            <span class="service-hover">Scopri →</span>
+          </div>
+          <div class="content">
+            <h3>Detailing Luxury</h3>
+            <p>Correzione multi-step e protezioni nanotecnologiche per carrozzerie high gloss.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-media" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1514311548104-e0c77000b1c2?auto=format&fit=crop&w=900&q=80" alt="Cura interni">
+            <span class="service-badge">Interior</span>
+            <span class="service-hover">Scopri →</span>
+          </div>
+          <div class="content">
+            <h3>Cura Interni</h3>
+            <p>Rigenerazione pelli, sanificazione UV-C e trattamento superfici soft touch.</p>
+          </div>
+        </article>
+        <article id="prodotti" class="service-card">
+          <div class="service-media" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Applicazione PPF">
+            <span class="service-badge">PPF</span>
+            <span class="service-hover">Scopri →</span>
+          </div>
+          <div class="content">
+            <h3>Protezione Film PPF</h3>
+            <p>Film auto-rigeneranti installati in camera bianca per protezioni invisibili.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-media" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80" alt="Coating marine">
+            <span class="service-badge">Marine</span>
+            <span class="service-hover">Scopri →</span>
+          </div>
+          <div class="content">
+            <h3>Coating Marine</h3>
+            <p>Soluzioni specifiche per gelcoat e metalli nobili in ambiente salino.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="centro" class="section">
+      <div class="split-layout">
+        <div class="media" aria-hidden="true"><!-- Placeholder photo --></div>
+        <div>
+          <p class="mono" style="color: var(--color-text-muted);">Perché sceglierci</p>
+          <h2 class="section-title">Metodologie proprietarie e controllo totale.</h2>
+          <p>Dal check-in al rilascio, ogni veicolo attraversa workflow digitalizzato, camere pulite e strumenti di metrologia certificata per garantire risultati replicabili.</p>
+          <ul>
+            <li>• Diagnosi multispettrale e report fotografici.</li>
+            <li>• Laboratorio PPF con taglio plotter computerizzato.</li>
+            <li>• Area climate control per polimerizzazione coating.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="progetti">
+      <div class="section-header">
+        <p class="mono" style="color: var(--color-text-muted);">Case study</p>
+        <h2 class="section-title">Progetti recenti</h2>
+      </div>
+      <div class="projects-slider">
+        <div class="slider-track">
+          <article class="case-study">
+            <div>
+              <h3>Ferrari 296 GTB</h3>
+              <p>Full body PPF opaco, coating ceramico su cerchi e cabina in carbonio. Consegna in 5 giorni lavorativi.</p>
+            </div>
+            <div class="case-images">
+              <figure aria-label="Foto prima"><!-- Foto prima placeholder --></figure>
+              <figure aria-label="Foto dopo"><!-- Foto dopo placeholder --></figure>
+            </div>
+          </article>
+          <article class="case-study">
+            <div>
+              <h3>Porsche 911 GT3</h3>
+              <p>Correzione livello concours, coating graphene e protezione parabrezza idrofobica.</p>
+            </div>
+            <div class="case-images">
+              <figure aria-label="Foto prima"><!-- Foto prima placeholder --></figure>
+              <figure aria-label="Foto dopo"><!-- Foto dopo placeholder --></figure>
+            </div>
+          </article>
+          <article class="case-study">
+            <div>
+              <h3>Azimut 55</h3>
+              <p>Trattamento gelcoat e metalli, sigillatura teak e protezione UV per componenti esterni.</p>
+            </div>
+            <div class="case-images">
+              <figure aria-label="Foto prima"><!-- Foto prima placeholder --></figure>
+              <figure aria-label="Foto dopo"><!-- Foto dopo placeholder --></figure>
+            </div>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <button type="button" data-direction="prev" aria-label="Slide precedente">‹</button>
+          <button type="button" data-direction="next" aria-label="Slide successiva">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section social-proof" id="social-proof">
+      <div class="metrics">
+        <div class="metric">
+          <strong>580+</strong>
+          <span>Veicoli protetti/anno</span>
+        </div>
+        <div class="metric">
+          <strong>1.200 m²</strong>
+          <span>Superficie laboratorio</span>
+        </div>
+        <div class="metric">
+          <strong>72 h</strong>
+          <span>Lead time medio</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>“Il team di Marco Sarro ha elevato il nostro parco aziendale a livelli di presentazione impeccabili. Tempi certi e consulenza continua.”</p>
+        <div class="testimonial-meta">
+          <span>— Davide P., Collection Manager</span>
+          <span class="testimonial-stars" aria-label="Valutazione 5 stelle">★★★★★</span>
+          <span style="color: var(--color-text-muted);">GReviews</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="section">
+      <div class="section-header">
+        <p class="mono" style="color: var(--color-text-muted);">Parla con noi</p>
+        <h2 class="section-title">Prenota una consulenza</h2>
+      </div>
+      <div class="cta-final">
+        <form>
+          <div class="form-field">
+            <label for="name">Nome e Cognome<span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome completo" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="nome@azienda.com" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" name="phone" placeholder="+39 333 0000000">
+          </div>
+          <div class="form-field">
+            <label for="message">Descrivi il progetto<span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Modello, condizioni e obiettivo dell'intervento" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Invia richiesta</button>
+        </form>
+        <div class="map">
+          <iframe title="Mappa laboratorio" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.584486691646!2d9.189981476970053!3d45.464203071072525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a5ef2a52ef%3A0xf18d8d6a9fdfb2f4!2sDuomo%20di%20Milano!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="logo">MARCO SARRO</p>
+        <p style="color: var(--color-text-muted);">Detailing studio certificato per supercar, flotte corporate e marine premium.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#progetti">Progetti</a></li>
+        <li><a href="#social-proof">Testimonianze</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+      <ul class="footer-social">
+        <li><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
+        <li><a href="https://www.youtube.com" target="_blank" rel="noreferrer">YouTube</a></li>
+        <li><a href="mailto:studio@marcosarro.it">studio@marcosarro.it</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Navigazione mobile">
+    <a href="#hero">
+      <span>Home</span>
+    </a>
+    <a href="#servizi">
+      <span>Servizi</span>
+    </a>
+    <a id="shop" href="#prodotti">
+      <span>Shop</span>
+    </a>
+    <a href="#contatti">
+      <span>Contatti</span>
+    </a>
+  </nav>
+
+  <section id="chi-siamo" hidden aria-hidden="true"></section>
+  <section id="certificazioni" hidden aria-hidden="true"></section>
+  <section id="news" hidden aria-hidden="true"></section>
+  <section id="faq" hidden aria-hidden="true"></section>
+
+  <script>
+    const toggleButton = document.querySelector('.menu-toggle');
+    const overlayMenu = document.querySelector('.overlay-menu');
+
+    toggleButton.addEventListener('click', () => {
+      const expanded = toggleButton.getAttribute('aria-expanded') === 'true';
+      toggleButton.setAttribute('aria-expanded', String(!expanded));
+      overlayMenu.style.display = expanded ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!overlayMenu.contains(event.target) && !toggleButton.contains(event.target)) {
+        overlayMenu.style.display = 'none';
+        toggleButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.case-study');
+    const buttons = document.querySelectorAll('.slider-controls button');
+    let currentIndex = 0;
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const direction = button.dataset.direction;
+        if (direction === 'next') {
+          currentIndex = (currentIndex + 1) % slides.length;
+        } else {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        }
+        sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+      });
+    });
+  </script>
+</body>
+</html>
